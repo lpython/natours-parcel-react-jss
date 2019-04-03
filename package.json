@@ -1,20 +1,21 @@
 {
-  "name": "parcel-react-css-modules",
+  "name": "parcel-natours-react-jss",
   "version": "0.1.0",
-  "description": "",
+  "description": "wat",
+  "repository": "wat",
   "scripts": {
     "start": "npx parcel src/index.html --no-cache --no-autoinstall",
     "type-check": "tsc --noEmit"
   },
   "license": "ISC",
   "dependencies": {
+    "color": "^3.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-jss": "^8.6.1",
     "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
-    "patch-package": "^6.1.0",
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",

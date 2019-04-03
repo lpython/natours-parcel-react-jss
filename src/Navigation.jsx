@@ -2,9 +2,12 @@ import React from 'react';
 import NavLinks from './NavLinks.jsx';
 import NavIcon from './NavIcon.jsx';
 
-import injectSheet from 'react-jss';
+import withStyles from 'react-jss';
+import Color from 'color';
 
-const styles = {
+const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
+
+const styles = theme => ({
     navigation: {
         '& .checkbox' : {
             display: 'none'
@@ -19,7 +22,7 @@ const styles = {
             right: '6rem',
             borderRadius: '50%',
             'z-index': 2000,
-            boxShadow: '0 1rem 3rem rgba(0,0,0, .1)',
+            boxShadow: `0 1rem 3rem ${convert(theme.colorBlack, 0.1)}`,
             textAlign: 'center',
             cursor: 'pointer',
     
@@ -42,7 +45,7 @@ const styles = {
             position: 'fixed',
             top: '6.5rem',
             right: '6.5rem',
-            backgroundImage: 'radial-gradient(#123, #FED)',
+            backgroundImage: `radial-gradient(${theme.colorPrimaryLight}, ${theme.colorPrimaryDark})`,
             'z-index': 1000,
             transition: 'transform .8s cubic-bezier(0.86, 0, .07, 1)',
     
@@ -85,7 +88,7 @@ const styles = {
                 fontSize: '3rem',
                 fontWeight: 300,
                 padding: '1rem 2rem',
-                color: '#FFF',
+                color: theme.colorWhite,
                 textDecoration: 'none',
                 textTransform: 'uppercase',
     
@@ -93,7 +96,7 @@ const styles = {
                     120deg,
                     transparent 0%,
                     transparent 50%,
-                    #FFF 50%
+                    ${theme.colorWhite} 50%
                 )`,
                 backgroundSize: '230%',
                 transition: 'all .4s',
@@ -101,7 +104,7 @@ const styles = {
             ,
             '&:hover, &:active':  {
                 backgroundPosition: '100%',
-                color: '#998',
+                color: theme.colorPrimary,
                 transform: 'translateX(1rem)', 
             }
         }
@@ -125,7 +128,7 @@ const styles = {
             '&, &::before, &::after': {
                 width: '3rem',
                 height: '2px',
-                backgroundColor: '#234',
+                backgroundColor: theme.colorGreyDark3,
                 display: 'inline-block',
             }
             ,
@@ -171,7 +174,7 @@ const styles = {
             transform: 'rotate(-135deg)',
         }
     }
-}
+});
 
 
 const Navigation = ({classes}) => (
@@ -197,4 +200,4 @@ const Navigation = ({classes}) => (
     </div>
 );
 
-export default injectSheet(styles)(Navigation);
+export default withStyles(styles)(Navigation);

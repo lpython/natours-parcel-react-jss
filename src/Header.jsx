@@ -1,16 +1,19 @@
 import React from 'react';
 import Button from './Button.jsx';
 
-import injectSheet from 'react-jss';
+import withStyles from 'react-jss';
 
+import Color from 'color';
 
-const styles = {
+const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
+
+const styles = theme => ({
     header: {
         height: '85vh',
         backgroundImage: `linear-gradient(
             to right bottom, 
-            rgba(126,213,111, 0.8), 
-            rgba(40, 180, 133, 0.8)),
+            ${convert(theme.colorPrimaryLight)}, 
+            ${convert(theme.colorPrimaryDark)} ), 
             url('./images/hero.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'top',
@@ -27,8 +30,8 @@ const styles = {
                 (min-width: 125em)": {
             backgroundImage: `linear-gradient(
                 to right bottom, 
-                rgba(126,213,111, 0.8), 
-                rgba(40, 180, 133, 0.8)),
+                ${convert(theme.colorPrimaryLight)}, 
+                ${convert(theme.colorPrimaryDark)} ),
                 url('./images/hero-small.jpg')`
         }
         ,
@@ -91,7 +94,7 @@ const styles = {
             // }
         }
     }
-};
+});
 
 const Header = ({classes}) => (
     <header className={classes.header} >
@@ -113,4 +116,4 @@ const Header = ({classes}) => (
     </header>
 );
 
-export default injectSheet(styles)(Header);
+export default withStyles(styles)(Header);

@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-import injectSheets from 'react-jss';
+import withStyles from 'react-jss';
+import Color from 'color';
 
-const styles = {
+const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
+
+const styles = theme => ({
   btn: {
     '&, &:link, &:visited': {
       textTransform: 'uppercase',
@@ -23,7 +26,7 @@ const styles = {
     ,
     '&:hover': {
       transform: 'translateY(-.3rem)',
-      boxShadow: '0 1rem 2rem rgba(255,255,255,.2)',
+      boxShadow: `0 1rem 2rem ${convert(theme.colorBlack, 0.2)}`,
 
       '&::after': {
         transform: 'scaleX(1.4) scale(1.6)',
@@ -34,24 +37,24 @@ const styles = {
     '&:active, &:focus': {
       outline: 'none',
       transform: 'translateY(-.1rem)',
-      boxShadow: '0 0.5rem 1rem rgba(255,255,255, .2)',
+      boxShadow: `0 0.5rem 1rem ${convert(theme.colorBlack, 0.2)}`,
     }
     ,
     '&[white]': {
-      backgroundColor: '#FFF',
-      color: '#222',
+      backgroundColor: theme.colorWhite,
+      color: theme.colorGreyDark,
 
       '&::after': {
-        backgroundColor: '#DDD',
+        backgroundColor: theme.colorWhite,
       }
     }
     ,
     '&[green]': {
-      backgroundColor: "#292",
-      color: '#111',
+      backgroundColor: theme.colorPrimary,
+      color: theme.colorWhite,
 
       '&::after': {
-        backgroundColor: "#292",
+        backgroundColor: theme.colorPrimary,
       }
     }
     ,
@@ -80,7 +83,7 @@ const styles = {
       color: '#292',
       display: 'inline-block',
       textDecoration: 'none',
-      borderBottom: '1px solid #292',
+      borderBottom: `1px solid ${theme.colorPrimary}`,
       padding: '3px',
       transition: 'all .2s',
     }
@@ -88,17 +91,16 @@ const styles = {
     '&:hover': {
       backgroundColor: '#393',
       color: '#FFF',
-      boxShadow: '0 1rem 2rem #FFF2',
+      boxShadow: `0 1rem 2rem ${convert(theme.colorBlack, 0.15)}`,
       transform: 'translateY(-2px)',
     }
     ,
     '&:active': {
-      boxShadow: '0 .5rem 1rem #FFF2',
+      boxShadow: `0 .5rem 1rem ${convert(theme.colorBlack, 0.15)}`,
       transform: 'translateY(0)',
     }
   }
-};
-
+});
 
 class Button extends React.Component {
     render(){
@@ -116,6 +118,5 @@ class Button extends React.Component {
     }
 }
 
-
-export default injectSheets(styles)(Button);
+export default withStyles(styles)(Button);
 

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-// import About from './About';
+import About from './About.jsx';
 // import Booking from './Booking';
 // import Features from './Features';
 // import Footer from './Footer';
@@ -92,14 +92,14 @@ const NatoursApp = () => (
     <Fragment>
         <Navigation/>
         <Header/>
-        {/* <main> */}
-            {/* <About/> */}
+        <main>
+            <About/>
             {/* <Features/> */}
             {/* <Tours/> */}
             {/* <Stories/> */}
             {/* <Booking/> */}
             {/* <PopUp/> */}
-        {/* </main> */}
+        </main>
         {/* <Footer/> */}
     </Fragment>
 );
