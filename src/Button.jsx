@@ -40,7 +40,7 @@ const styles = theme => ({
       boxShadow: `0 0.5rem 1rem ${convert(theme.colorBlack, 0.2)}`,
     }
     ,
-    '&[white]': {
+    '&[white="true"]': {
       backgroundColor: theme.colorWhite,
       color: theme.colorGreyDark,
 
@@ -102,21 +102,20 @@ const styles = theme => ({
   }
 });
 
-class Button extends React.Component {
-    render(){
-      const { white = false, animated = false } = this.props; 
-      return (
-            <a 
-                href={this.props.href ? this.props.href : '#'}
-                white={white.toString()}
-                animated={animated.toString()}
-                className={this.props.className + ' ' + this.props.classes.btn }
-            >
-                {this.props.text}
-            </a>
-        );
-    }
+function Button({ text = 'Button', href, className, classes, white = false, animated = false }) {
+  // const { white = false, animated = false } = this.props; 
+  return (
+    <a
+      href={href ? href : '#'}
+      white={white.toString()}
+      animated={animated.toString()}
+      className={className + ' ' + classes.btn}
+    >
+      {text}
+    </a>
+  );
 }
+
 
 export default withStyles(styles)(Button);
 

@@ -2,6 +2,10 @@ import React from 'react';
 import Button from './Button.jsx';
 import withStyles from 'react-jss';
 
+import Color from 'color';
+
+const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
+
 // import nat1Large from '../images/nat-1-large.jpg';
 // import nat2Large from '../images/nat-2-large.jpg';
 // import nat3Large from '../images/nat-3-large.jpg';
@@ -10,7 +14,7 @@ import withStyles from 'react-jss';
 // import nat2Small from '../images/nat-2.jpg';
 // import nat3Small from '../images/nat-3.jpg';
 
-const styles = {
+const styles = theme => ({
     about: {
         backgroundColor: '#567',
         padding: '25rem 0',
@@ -23,21 +27,38 @@ const styles = {
         // @include respond(phone) {
         //     padding: 25rem 0;
         // }
-        '& .u-center-text': { textAlign: 'center' },
-        '& .u-margin-bottom-big': {
-            marginBottom: '8rem !important' 
-    
-            // @include respond(tablet-portrait) {
-            //     margin-bottom: 5rem !important;
-            // }
+
+        '& div.heading': { 
+            textAlign: 'center', 
+            marginBottom: '8rem !important'
+        },
+
+        '& h2': {
+            color: 'transparent',
+            display: 'inline-block',
+            fontSize: '3.5rem',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            letterSpacing: '2px',
+        
+            backgroundImage: `linear-gradient(to right, ${theme.colorPrimaryLight}, ${theme.colorPrimaryDark})`,
+            webkitBackgroundClip: 'text',
+        
+            transition: 'all .2s',
+        
+            '&:hover': {
+                transform: 'skewY(2deg) skewX(15deg) scale(1.1)',
+                textShadow: `.5rem 1rem 2rem ${convert(theme.colorBlack, 0.2)}`,
+            }
         }
     }
-}
+});
+
 const About = ({classes}) => {
     return (
         <section className={classes.about}>
-           <div className="u-center-text u-margin-bottom-big">
-               <h2 className="heading-secondary">
+           <div className="heading">
+               <h2>
                    Exciting tours for adventurous people
                </h2>
            </div> 
@@ -61,7 +82,6 @@ const About = ({classes}) => {
                        className="btn-text"
                        text="Learn more &rarr;"
                   />
-
                    
                </div>
                <div className="col-1-of-2">

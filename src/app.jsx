@@ -34,8 +34,10 @@ const theme = {
 
   // Font-sizes:
 
-  defaultFontSize: '1.6rem'
-}
+  defaultFontSize: '1.6rem',
+
+  
+};
 
 document.addEventListener('DOMContentLoaded', () => render(
   <ThemeProvider theme={theme}>
