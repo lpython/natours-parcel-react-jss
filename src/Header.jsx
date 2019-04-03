@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from './Button.jsx';
 
-
 import injectSheet from 'react-jss';
+
 
 const styles = {
     header: {

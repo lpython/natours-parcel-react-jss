@@ -149,24 +149,24 @@ const styles = {
             }
         }
         ,
-        '& .button:hover & .icon:before': {
+        '& .button:hover .icon:before': {
             top: '-1rem',
         }
         ,
-        '& .button:hover & .icon:after': {
+        '& .button:hover .icon:after': {
             top: '1rem',
         }
         ,
-        '& .checkbox:checked + & .button & .icon ': {
+        '& .checkbox:checked + .button .icon ': {
             backgroundColor: 'transparent',
         }
         ,
-        '& .checkbox:checked + & .button & .icon:before': {
+        '& .checkbox:checked + .button .icon:before': {
             top: 0,
             transform: 'rotate(135deg)',
         }
         ,
-        '& .checkbox:checked + & .button & .icon:after': {
+        '& .checkbox:checked + .button .icon:after': {
             top: 0,
             transform: 'rotate(-135deg)',
         }
