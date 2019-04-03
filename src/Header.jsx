@@ -54,8 +54,6 @@ const styles = {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             textAlign: 'center',
-
-           
         }
     }
     ,
@@ -106,7 +104,9 @@ const Header = ({classes}) => (
                 <span className="sub">is where life happens</span>
             </h1>
             <Button
-                className="btn btn--white btn--animated"
+                className="btn"
+                white
+                animated
                 text="Discover our tours"
             />
         </div>

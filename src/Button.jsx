@@ -37,7 +37,7 @@ const styles = {
       boxShadow: '0 0.5rem 1rem rgba(255,255,255, .2)',
     }
     ,
-    'white': {
+    '&[white]': {
       backgroundColor: '#FFF',
       color: '#222',
 
@@ -46,7 +46,7 @@ const styles = {
       }
     }
     ,
-    '&--green': {
+    '&[green]': {
       backgroundColor: "#292",
       color: '#111',
 
@@ -68,7 +68,7 @@ const styles = {
       transition: 'all .4s',
     }
     ,
-    '&--animated': {
+    '&[animated]': {
       animation: 'moveInBottom .5s ease-out .75s',
       animationFillMode: 'backwards',
     }
@@ -102,9 +102,12 @@ const styles = {
 
 class Button extends React.Component {
     render(){
-        return (
+      const { white = false, animated = false } = this.props; 
+      return (
             <a 
                 href={this.props.href ? this.props.href : '#'}
+                white={white.toString()}
+                animated={animated.toString()}
                 className={this.props.className + ' ' + this.props.classes.btn }
             >
                 {this.props.text}
@@ -112,6 +115,7 @@ class Button extends React.Component {
         );
     }
 }
+
 
 export default injectSheets(styles)(Button);
 
