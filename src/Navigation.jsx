@@ -19,7 +19,7 @@ const styles = {
             right: '6rem',
             borderRadius: '50%',
             'z-index': 2000,
-            boxShadow: '0 1rem 3rem rgba(#000, .1)',
+            boxShadow: '0 1rem 3rem rgba(0,0,0, .1)',
             textAlign: 'center',
             cursor: 'pointer',
     
@@ -134,7 +134,7 @@ const styles = {
             // }
     
             '&::before, &::after': {
-                content: '',
+                content: `''`,
                 position: 'absolute',
                 left: 0,
                 transition: 'all .2s',

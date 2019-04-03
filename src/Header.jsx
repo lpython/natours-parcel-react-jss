@@ -1,5 +1,4 @@
 import React from 'react';
-import logoWhite from "./images/logo-white.png";
 import Button from './Button.jsx';
 
 
@@ -8,7 +7,6 @@ import injectSheet from 'react-jss';
 const styles = {
     header: {
         height: '85vh',
-        // @include headerImg('../images/hero-small.jpg'),
         backgroundImage: `linear-gradient(
             to right bottom, 
             rgba(126,213,111, 0.8), 
@@ -51,7 +49,13 @@ const styles = {
         ,
         '& .text-box': {
             // @include center-hor-ver(40%, 50%),
+            position: 'absolute',
+            top: '40%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             textAlign: 'center',
+
+           
         }
     }
     ,
@@ -94,7 +98,7 @@ const styles = {
 const Header = ({classes}) => (
     <header className={classes.header} >
         <div className="logo-box">
-            <img className="logo" src={logoWhite} alt="Logo" />
+            <img className="logo" src="./images/logo-white.png" alt="Logo" />
         </div>
         <div className="text-box">
             <h1 className={classes.headingPrimary} >
