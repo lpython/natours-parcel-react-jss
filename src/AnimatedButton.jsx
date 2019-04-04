@@ -40,24 +40,6 @@ const styles = theme => ({
       boxShadow: `0 0.5rem 1rem ${convert(theme.colorBlack, 0.2)}`,
     }
     ,
-    '&[white="true"]': {
-      backgroundColor: theme.colorWhite,
-      color: theme.colorGreyDark,
-
-      '&::after': {
-        backgroundColor: theme.colorWhite,
-      }
-    }
-    ,
-    '&[green]': {
-      backgroundColor: theme.colorPrimary,
-      color: theme.colorWhite,
-
-      '&::after': {
-        backgroundColor: theme.colorPrimary,
-      }
-    }
-    ,
     '&::after': {
       content: `''`,
       display: 'inline-block',
@@ -71,45 +53,62 @@ const styles = theme => ({
       transition: 'all .4s',
     }
     ,
-    '&[animated]': {
+    '&[white="true"]': {
+      backgroundColor: theme.colorWhite,
+      color: theme.colorGreyDark,
+
+      '&::after': {
+        backgroundColor: theme.colorWhite,
+      }
+    }
+    ,
+    '&[green="true"]': {
+      backgroundColor: theme.colorPrimary,
+      color: theme.colorWhite,
+
+      '&::after': {
+        backgroundColor: theme.colorPrimary,
+      }
+    }
+    ,
+    '&[animated="true"]': {
       animation: 'moveInBottom .5s ease-out .75s',
       animationFillMode: 'backwards',
     }
-  }
-  ,
-  btnText: {
-    '&:link, &:visited': {
-      fontSize: '16px',
-      color: '#292',
-      display: 'inline-block',
-      textDecoration: 'none',
-      borderBottom: `1px solid ${theme.colorPrimary}`,
-      padding: '3px',
-      transition: 'all .2s',
-    }
-    ,
-    '&:hover': {
-      backgroundColor: '#393',
-      color: '#FFF',
-      boxShadow: `0 1rem 2rem ${convert(theme.colorBlack, 0.15)}`,
-      transform: 'translateY(-2px)',
-    }
-    ,
-    '&:active': {
-      boxShadow: `0 .5rem 1rem ${convert(theme.colorBlack, 0.15)}`,
-      transform: 'translateY(0)',
-    }
+    // ,
+    // '&[raised="true"]': {
+    //   '&:link, &:visited': {
+    //     fontSize: theme.defaultFontSize || '16px',
+    //     color: theme.colorPrimary,
+    //     display: 'inline-block',
+    //     textDecoration: 'none',
+    //     borderBottom: `1px solid ${theme.colorPrimary}`,
+    //     padding: '3px',
+    //     transition: 'all .2s',
+    //   }
+    //   ,
+    //   '&:hover': {
+    //     backgroundColor: '#393',
+    //     color: '#FFF',
+    //     boxShadow: `0 1rem 2rem ${convert(theme.colorBlack, 0.15)}`,
+    //     transform: 'translateY(-2px)',
+    //   }
+    //   ,
+    //   '&:active': {
+    //     boxShadow: `0 .5rem 1rem ${convert(theme.colorBlack, 0.15)}`,
+    //     transform: 'translateY(0)',
+    //   }
+    // }
   }
 });
 
-function Button({ text = 'Button', href, className, classes, white = false, animated = false }) {
+function Button({ text = 'Button', href, className, classes, white = false, animated = false, raised = false }) {
   // const { white = false, animated = false } = this.props; 
   return (
     <a
       href={href ? href : '#'}
-      white={white.toString()}
-      animated={animated.toString()}
       className={className + ' ' + classes.btn}
+      white={white.toString()} animated={animated.toString()} raised={raised.toString()}
     >
       {text}
     </a>

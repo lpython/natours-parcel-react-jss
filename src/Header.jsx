@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button.jsx';
+import AnimatedButton from './AnimatedButton.jsx';
 
 import withStyles from 'react-jss';
 
@@ -106,8 +106,7 @@ const Header = ({classes}) => (
                 <span className="main">Outdoors</span>
                 <span className="sub">is where life happens</span>
             </h1>
-            <Button
-                className="btn"
+            <AnimatedButton
                 white
                 animated
                 text="Discover our tours"

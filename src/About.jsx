@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button.jsx';
+import RaisedButton from './RaisedButton.jsx';
 import withStyles from 'react-jss';
 
 import Color from 'color';
@@ -16,7 +16,7 @@ const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
 const styles = theme => ({
     about: {
-        backgroundColor: '#567',
+        backgroundColor: theme.colorGreyLight1,
         padding: '25rem 0',
         marginTop: '-20vh',
     
@@ -31,24 +31,74 @@ const styles = theme => ({
         '& div.heading': { 
             textAlign: 'center', 
             marginBottom: '8rem !important'
-        },
-
-        '& h2': {
-            color: 'transparent',
-            display: 'inline-block',
-            fontSize: '3.5rem',
-            textTransform: 'uppercase',
-            fontWeight: 700,
-            letterSpacing: '2px',
-        
-            backgroundImage: `linear-gradient(to right, ${theme.colorPrimaryLight}, ${theme.colorPrimaryDark})`,
-            webkitBackgroundClip: 'text',
-        
+        }
+        ,
+        '& p': { fontSize: '1.6rem' }
+        ,
+        '& p:not(:last-child)': { marginBottom: '3rem' }
+        ,
+        '& .composition': {
+            position: 'relative',
             transition: 'all .2s',
         
-            '&:hover': {
-                transform: 'skewY(2deg) skewX(15deg) scale(1.1)',
-                textShadow: `.5rem 1rem 2rem ${convert(theme.colorBlack, 0.2)}`,
+            '& .photo': {
+                width: '55%',
+                boxShadow: `0 1.5rem 4rem ${convert(theme.colorBlack, 0.4)}`,
+                borderRadius: '2px',
+                position: 'absolute',
+                "z-index": 10,
+                transition: 'all .2s',
+                outlineOffset: '2rem',
+        
+                // @include respond(tablet-portrait){
+                //     position: relative,
+                //     float: left !important,
+                //     width: 33.333333%,
+                //     boxShadow: 0 1rem 2rem rgba($color-black, .4),
+                // }
+        
+                '&.p1': {
+                    left: 0,
+                    top: '-2rem',
+        
+                    // @include respond(tablet-portrait){
+                    //     top: 1rem,
+                    //     transform: scale(1.1),
+                    // }
+                }
+                ,
+                '&.p2': {
+                    right: 0,
+                    top: '2rem',
+        
+                    // @include respond(tablet-portrait){
+                    //     top: -1rem,
+                    //     transform: scale(1.3),
+                    //     z-index: 199,
+                    // }
+                }
+                ,
+                '&.p3': {
+                    left: '20%',
+                    top: '10rem',
+        
+                    // @include respond(tablet-portrait){
+                    //     top: 1rem,
+                    //     left: 0,
+                    //     transform: scale(1.1),
+                    // }
+                }
+                ,
+                '&:hover': {
+                    outline: `1.5rem solid ${theme.colorPrimary}`,
+                    transform: 'scale(1.05) translateY(-.5rem)',
+                    boxShadow: `0 2.5rem 4rem ${convert(theme.colorBlack, .5)}`,
+                    "z-index": 20,
+                }
+            }
+            ,
+            '&:hover .photo:not(:hover)': {
+                transform: 'scale(.95)',
             }
         }
     }
@@ -58,57 +108,54 @@ const About = ({classes}) => {
     return (
         <section className={classes.about}>
            <div className="heading">
-               <h2>
+               <h2 className="heading-secondary">
                    Exciting tours for adventurous people
                </h2>
            </div> 
            <div className="row">
                <div className="col-1-of-2">
-                   <h3 className="heading-tertiary u-margin-bottom-small">
+                   <h3 className="margin-bottom-sm">
                        You're going to fall in love with nature
                    </h3>
-                   <p className="paragraph">
+                   <p >
                        Autem est sunt ut suscipit. Ipsum ab eius. Ipsa sint adipisci repudiandae consequatur sint illum. Sapiente nihil cum facere.
                    </p>
    
-                   <h3 className="heading-tertiary u-margin-bottom-small">
+                   <h3 className="margin-bottom-sm">
                        Live adventurous like you never have before
                    </h3>
-                   <p className="paragraph">
+                   <p >
                        Vel voluptatem necessitatibus quis fugit sit est sed. Accusantium eaque nihil. Aut qui quo et repudiandae. Quo maxime nobis aut consequatur non sapiente quisquam exercitationem ad.
                    </p> 
    
-                  <Button
-                       className="btn-text"
-                       text="Learn more &rarr;"
-                  />
+                    <RaisedButton
+                        text="Learn more &rarr;"
+                    />
                    
                </div>
                <div className="col-1-of-2">
                    <div className="composition">
-
                         <img 
                             srcSet={`images/nat-1.jpg 300w, images/nat-1-large.jpg 1000w`}
                             sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
                             alt='Phote-1'
-                            className="composition__photo composition__photo--p1"
+                            className="photo p1"
                             src="images/nat-1-large.jpg"
                         />
 
                         <img 
                             srcSet={`images/nat-2.jpg 300w, images/nat-2-large.jpg 1000w`}
                             sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
-                            alt='Phote-1'
-                            className="composition__photo composition__photo--p2"
+                            alt='Phote-2'
+                            className="photo p2"
                             src="images/nat-2-large.jpg"
                         />
-
 
                         <img 
                             srcSet={`images/nat-3.jpg 300w, images/nat-3-large.jpg 1000w`}
                             sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
-                            alt='Phote-1'
-                            className="composition__photo composition__photo--p3"
+                            alt='Phote-3'
+                            className="photo p3"
                             src="images/nat-3-large.jpg"
                         />
                    </div> 

@@ -109,6 +109,7 @@ const styles = theme => ({
             }
         }
         ,
+
         // Functionality
     
         '& .checkbox:checked ~ & .background': {
@@ -184,7 +185,7 @@ const Navigation = ({classes}) => (
             &nbsp;
         </div>
         <nav className="nav">
-            <NavLinks
+            {/* <NavLinks
                 listClass="list"
                 itemClass="item"
                 linkClass="link"
@@ -195,7 +196,7 @@ const Navigation = ({classes}) => (
                     "Stories",
                     "Book Now"
                 ]}
-            />
+            /> */}
         </nav>
     </div>
 );

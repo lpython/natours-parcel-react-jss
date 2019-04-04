@@ -11,7 +11,11 @@ import Navigation from './Navigation.jsx';
 
 import injectSheet from 'react-jss';
 
-const styles = {
+import Color from 'color';
+
+const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
+
+const styles = theme => ({
   '@global': {
     "*, *::after, *::before": {
       margin: 0,
@@ -41,6 +45,100 @@ const styles = {
       // }
     }
     ,
+    h2: {
+      color: 'transparent',
+      display: 'inline-block',
+      fontSize: '3.5rem',
+      textTransform: 'uppercase',
+      fontWeight: 700,
+      letterSpacing: '2px',
+  
+      backgroundImage: `linear-gradient(to right, ${theme.colorPrimaryLight}, ${theme.colorPrimaryDark})`,
+      "-webkit-background-clip": 'text',
+  
+      transition: 'all .2s',
+  
+      '&:hover': {
+          transform: 'skewY(2deg) skewX(15deg) scale(1.1)',
+          textShadow: `.5rem 1rem 2rem ${convert(theme.colorBlack, 0.2)}`,
+      }
+    }
+    ,
+    h3: {
+      fontSize: theme.defaultFontSize,
+      fontWeight: 700,
+      textTransform: 'uppercase',
+    }
+    ,
+    '.row': {
+      maxWidth: theme.gridWidth,
+      margin: '0 auto',
+  
+      "&:not(:last-child)": {
+          marginBottom: theme.gutterVertical,
+  
+          // @include respond(tablet-portrait){
+          //     marginBottom: $gutter-vertical-small,
+          // }
+      }
+      ,
+      // @include respond(tablet-portrait){
+      //     maxWidth: 50rem,
+      //     padding: 0 3rem,
+      // }
+  
+      // @include clearfix,
+      '&::after': {
+        content: `''`,
+        display: 'table',
+        clear: 'both'
+      }
+      ,
+      // It selects all classes with name starting col-
+      "& [class^='col-']": {
+          float: 'left',
+  
+          "&:not(:last-child)": {
+              marginRight: theme.gutterHorizontal,
+  
+              // @include respond(tablet-portrait){
+              //     marginRight: 0 !important,
+              //     marginBottom: $gutter-vertical-small,
+              // }
+          }
+          ,
+          // @include respond(tablet-portrait){
+          //     width: 100% !important,
+          // }
+      }
+      ,
+      '& .col-1-of-2': {
+          width: `calc((100% - ${theme.gutterHorizontal}) / 2)`,
+      }
+      ,
+      '& .col-1-of-3': {
+          width: `calc((100% - 2 * ${theme.gutterHorizontal}) / 3)`,
+      }
+      ,
+      '& .col-2-of-3': {
+          width: `calc(2 * ((100% - 2 * ${theme.gutterHorizontal}) / 3) + ${theme.gutterHorizontal})`,
+      }
+      ,
+      '& .col-1-of-4': {
+          width: `calc((100% - 3 * ${theme.gutterHorizontal}) / 4)`,
+      }
+      ,
+      '& .col-2-of-4': {
+          width: `calc(2 * ((100% - 3 * ${theme.gutterHorizontal}) / 4) + ${theme.gutterHorizontal})`,
+      }
+      ,
+      '& .col-3-of-4:': {
+          width: `calc( 100% - ${theme.gutterHorizontal} - (100% - 3 * ${theme.gutterHorizontal}) / 4)`,
+      }
+    }
+    
+    ,
+    /** Animations */
     '@keyframes moveInLeft': {
       "0%": {
         opacity: 0,
@@ -86,7 +184,7 @@ const styles = {
       }
     }
   }
-};
+});
 
 const NatoursApp = () => (
     <Fragment>
