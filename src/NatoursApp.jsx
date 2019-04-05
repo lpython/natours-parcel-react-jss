@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import About from './About.jsx';
 // import Booking from './Booking';
-// import Features from './Features';
+import Features from './Features.jsx';
 // import Footer from './Footer';
 import Header from './Header.jsx';
 import Navigation from './Navigation.jsx';
@@ -68,6 +68,42 @@ const styles = theme => ({
       fontSize: theme.defaultFontSize,
       fontWeight: 700,
       textTransform: 'uppercase',
+    }
+    ,
+    '@font-face': {
+      fontFamily: "linea-basic-10",
+      src: `url("./fonts/linea-basic-10.eot?#iefix") format("embedded-opentype"),
+        url("./fonts/linea-basic-10.woff") format("woff"),
+        url("./fonts/linea-basic-10.ttf") format("truetype"),
+        url("./fonts/linea-basic-10.svg#linea-basic-10") format("svg")`,
+      fontWeight: 'normal',
+      fontStyle: 'normal'
+    
+    }
+    ,
+    '[data-icon]:before': {
+      fontFamily: '"linea-basic-10" !important',
+      content: 'attr(data-icon)',
+      fontStyle: 'normal !important',
+      fontWeight: 'normal !important',
+      fontVariant: 'normal !important',
+      textTransform: 'none !important',
+      speak: 'none',
+      lineHeight: 1,
+      "-webkit-font-smoothing": 'antialiased',
+      "-moz-osx-font-smoothing": 'grayscale'
+    }
+    ,
+    '[class^="icon-"]:before, [class*=" icon-"]:before': {
+      fontFamily: '"linea-basic-10" !important',
+      fontStyle: 'normal !important',
+      fontWeight: 'normal !important',
+      fontVariant: 'normal !important',
+      textTransform: 'none !important',
+      speak: 'none',
+      lineHeight: 1,
+      '-webkit-font-smoothing': 'antialiased',
+      '-moz-osx-font-smoothing': 'grayscale'
     }
     ,
     '.row': {
@@ -192,7 +228,7 @@ const NatoursApp = () => (
         <Header/>
         <main>
             <About/>
-            {/* <Features/> */}
+            <Features/>
             {/* <Tours/> */}
             {/* <Stories/> */}
             {/* <Booking/> */}
