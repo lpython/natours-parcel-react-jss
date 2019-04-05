@@ -7,7 +7,7 @@ import Header from './Header.jsx';
 import Navigation from './Navigation.jsx';
 // import PopUp from './PopUp';
 // import Stories from './Stories';
-// import Tours from './Tours';
+import Tours from './Tours.jsx';
 
 import injectSheet from 'react-jss';
 
@@ -229,7 +229,7 @@ const NatoursApp = () => (
         <main>
             <About/>
             <Features/>
-            {/* <Tours/> */}
+            <Tours/>
             {/* <Stories/> */}
             {/* <Booking/> */}
             {/* <PopUp/> */}
