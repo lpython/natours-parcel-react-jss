@@ -1,12 +1,12 @@
 import React from 'react';
 
-import withStyles from 'react-jss';
+import { createUseStyles, useTheme } from 'react-jss';
 
 import Color from 'color';
 
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
-const styles = theme => ({
+const useStyles = createUseStyles(theme => ({
 
   headingSecondary: {
     color: 'transparent',
@@ -34,13 +34,15 @@ const styles = theme => ({
     //     font-size: 2.5rem,
     // }
   }
-});
+}));
 
-function Typography({}) {
-  
+export default function Typography({}) {
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+
   return (
     <>
-
+      
     </>
   );
 }

@@ -1,15 +1,14 @@
 import React from 'react';
 import FeatureBox from './FeatureBox'
 
-
-import withStyles from 'react-jss';
+import { createUseStyles, useTheme } from 'react-jss';
 
 import Color from 'color';
 
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
-const styles = theme => ({
-  features:  {
+const useStyles = createUseStyles(theme => ({
+    features:  {
     backgroundImage: `linear-gradient(
           to right bottom, 
           ${convert(theme.colorPrimaryLight, 0.8)},
@@ -34,30 +33,32 @@ const styles = theme => ({
     '& i.icon-basic-map:before': { content: `"+"` },
     '& i.icon-basic-heart:before': { content: `"W"` },
   }
-});
+}));
 
-const Features = ({classes}) => (
-    <section className={classes.features}>
-        <div className="row">
-            <FeatureBox
-                iconClassName="icon-basic-world"
-                heading="Explore the world"
-            />
-            <FeatureBox
-                iconClassName="icon-basic-compass"
-                heading="Meet the nature"
-            />
-            <FeatureBox
-                iconClassName="icon-basic-map"
-                heading="Find your way"
-            />
-            <FeatureBox
-                iconClassName="icon-basic-heart"
-                heading="Live a healthier life"
-            />
-        </div>
-    </section>
-);
+export default function Features() {
+    const theme = useTheme();
+    const classes = useStyles({ theme });
 
-
-export default withStyles(styles)(Features);
+    return (
+        <section className={classes.features}>
+            <div className="row">
+                <FeatureBox
+                    iconClassName="icon-basic-world"
+                    heading="Explore the world"
+                />
+                <FeatureBox
+                    iconClassName="icon-basic-compass"
+                    heading="Meet the nature"
+                />
+                <FeatureBox
+                    iconClassName="icon-basic-map"
+                    heading="Find your way"
+                />
+                <FeatureBox
+                    iconClassName="icon-basic-heart"
+                    heading="Live a healthier life"
+                />
+            </div>
+        </section>
+    );
+}

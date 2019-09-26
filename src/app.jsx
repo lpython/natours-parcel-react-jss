@@ -1,5 +1,5 @@
 import React from 'react';
-import withStyles, { ThemeProvider } from 'react-jss';
+import { ThemeProvider } from 'react-jss';
 
 import NatoursApp from './NatoursApp.jsx';
 
@@ -43,6 +43,3 @@ export default () => (
     <NatoursApp />
   </ThemeProvider>
 );
-
-// document.addEventListener('DOMContentLoaded', () => render(
-//   document.getElementById('app')));

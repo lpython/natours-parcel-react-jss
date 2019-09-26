@@ -1,13 +1,13 @@
 import React from 'react';
 import AnimatedButton from './AnimatedButton.jsx';
 
-import withStyles from 'react-jss';
+import { createUseStyles, useTheme } from 'react-jss';
 
 import Color from 'color';
 
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
-const styles = theme => ({
+const useStyles = createUseStyles(theme => ({
     root: {
         height: '85vh',
         backgroundImage: `linear-gradient(
@@ -59,27 +59,30 @@ const styles = theme => ({
             textAlign: 'center',
         }
     }
-});
+}));
 
-const Header = ({classes}) => (
-    <header className={classes.root} >
-        <div className="logo-box">
-            <img className="logo" src="./images/logo-white.png" alt="Logo" />
-        </div>
-        <div className="text-box">
-            <CenterHeading/>
-            <AnimatedButton
-                white
-                animated
-                text="Discover our tours"
-            />
-        </div>
-    </header>
-);
+export default function Header() {
+    const theme = useTheme();
+    const classes = useStyles({ theme });
 
-export default withStyles(styles)(Header);
+    return (
+        <header className={classes.root} >
+            <div className="logo-box">
+                <img className="logo" src="./images/logo-white.png" alt="Logo" />
+            </div>
+            <div className="text-box">
+                <CenterHeading/>
+                <AnimatedButton
+                    white
+                    animated
+                    text="Discover our tours"
+                />
+            </div>
+        </header>
+    );
+}
 
-const CenterHeading = withStyles({
+const useCenterHeadingStyles = createUseStyles(theme => ({
     root: {
         color: '#fff',
         textTransform: 'uppercase',
@@ -114,11 +117,16 @@ const CenterHeading = withStyles({
             // }
         }
     }
-})(function CenterHeading({ classes }) {
+}))
+
+function CenterHeading() {
+    const theme = useTheme();
+    const classes = useCenterHeadingStyles({ theme });
+
     return (
         <h1 className={classes.root} >
             <span className="main">Outdoors</span>
             <span className="sub">is where life happens</span>
         </h1>
     );
-})
+}

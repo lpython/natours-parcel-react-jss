@@ -2,12 +2,12 @@ import React from 'react';
 import NavLinks from './NavLinks.jsx';
 import NavIcon from './NavIcon.jsx';
 
-import withStyles from 'react-jss';
+import { createUseStyles, useTheme } from 'react-jss';
 import Color from 'color';
 
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
-const styles = theme => ({
+const useStyles = createUseStyles(theme => ({
     root: {
         '& .checkbox' : {
             display: 'none'
@@ -121,6 +121,7 @@ const styles = theme => ({
             width: '100%'
         }
         ,
+        // TODO move to navicon.jsx
         // Icon
     
         '& .icon': {
@@ -175,30 +176,33 @@ const styles = theme => ({
             transform: 'rotate(-135deg)',
         }
     }
-});
+}));
 
 
-const Navigation = ({classes}) => (
-    <div className={classes.root}>
-        <NavIcon/>
-        <div className="background">
-            &nbsp;
+export default function Navigation() {
+    const theme = useTheme();
+    const classes = useStyles({ theme });
+
+    return (
+        <div className={classes.root}>
+            <NavIcon/>
+            <div className="background">
+                &nbsp;
+            </div>
+            <nav className="nav">
+                {/* <NavLinks
+                    listClass="list"
+                    itemClass="item"
+                    linkClass="link"
+                    linksNames={[
+                        "About Natours",
+                        "Your Benefits",
+                        "Popular Tours",
+                        "Stories",
+                        "Book Now"
+                    ]}
+                /> */}
+            </nav>
         </div>
-        <nav className="nav">
-            {/* <NavLinks
-                listClass="list"
-                itemClass="item"
-                linkClass="link"
-                linksNames={[
-                    "About Natours",
-                    "Your Benefits",
-                    "Popular Tours",
-                    "Stories",
-                    "Book Now"
-                ]}
-            /> */}
-        </nav>
-    </div>
-);
-
-export default withStyles(styles)(Navigation);
+    );
+}

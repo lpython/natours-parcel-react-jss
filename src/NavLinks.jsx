@@ -1,5 +1,6 @@
 import React from 'react';
 
+// TODO use props.classes
 const NavLinks = ({ 
     linksNames, 
     listClass, 

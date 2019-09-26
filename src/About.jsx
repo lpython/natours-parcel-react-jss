@@ -1,6 +1,6 @@
 import React from 'react';
 import RaisedButton from './RaisedButton.jsx';
-import withStyles from 'react-jss';
+import { createUseStyles, useTheme } from 'react-jss';
 
 import Color from 'color';
 
@@ -14,7 +14,7 @@ const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 // import nat2Small from '../images/nat-2.jpg';
 // import nat3Small from '../images/nat-3.jpg';
 
-const styles = theme => ({
+const useStyles = createUseStyles(theme => ({
     about: {
         backgroundColor: theme.colorGreyLight1,
         padding: '25rem 0',
@@ -102,9 +102,12 @@ const styles = theme => ({
             }
         }
     }
-});
+}));
 
-const About = ({classes}) => {
+export default function About() {
+    const theme = useTheme();
+    const classes = useStyles({ theme });
+
     return (
         <section className={classes.about}>
            <div className="heading">
@@ -165,4 +168,3 @@ const About = ({classes}) => {
    );
 }
 
-export default withStyles(styles)(About);

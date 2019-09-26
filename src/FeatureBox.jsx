@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withStyles from 'react-jss';
+import { createUseStyles, useTheme } from 'react-jss';
 import Color from 'color';
 
 
@@ -16,8 +16,7 @@ const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
 
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
-const styles = theme => ({
-  
+const useStyles = createUseStyles(theme => ({
   featureBox: {
     backgroundColor: convert(theme.colorWhite, .8),
     fontSize: '1.5rem',
@@ -54,22 +53,23 @@ const styles = theme => ({
         transform: 'translateY(-1.5rem) scale(1.03)'
     }
   }
-});
+}));
 
+export default function FeatureBox ({ iconClassName, heading}) {
+    const theme = useTheme();
+    const classes = useStyles({ theme });
 
-
-const FeatureBox = ({classes, iconClassName, heading}) => (
-    <div className="col-1-of-4">
-        <div className={classes.featureBox}> 
-            <i className={iconClassName}></i> 
-            <h3 className="heading-tertiary u-margin-bottom-small">
-                {heading}
-            </h3>
-            <p className="feature-box__text">
-                {sentences[getRandomInt(4)]}!
-            </p>
+    return (
+        <div className="col-1-of-4">
+            <div className={classes.featureBox}> 
+                <i className={iconClassName}></i> 
+                <h3 className="heading-tertiary u-margin-bottom-small">
+                    {heading}
+                </h3>
+                <p className="feature-box__text">
+                    {sentences[getRandomInt(4)]}!
+                </p>
+            </div>
         </div>
-    </div>
-);
-
-export default withStyles(styles)(FeatureBox);
+    );
+}

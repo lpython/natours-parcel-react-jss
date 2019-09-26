@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 // import { Link } from 'react-router-dom';
 
-import withStyles from 'react-jss';
+import { createUseStyles, useTheme } from 'react-jss';
 import Color from 'color';
 
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
-const styles = theme => ({
+const useStyles = createUseStyles(theme => ({
   // btn: {
   //   '&, &:link, &:visited': {
   //     textTransform: 'uppercase',
@@ -100,10 +100,13 @@ const styles = theme => ({
       }
     }
   // }
-});
+}));
 
-function RaisedButton({ text = 'Button', href, className, classes, raised = false, white = false, animated = false }) {
+export default function RaisedButton({ text = 'Button', href, className, raised = false, white = false, animated = false }) {
   // const { white = false, animated = false } = this.props; 
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+
   return (
     <a
       href={href ? href : '#'}
@@ -117,5 +120,4 @@ function RaisedButton({ text = 'Button', href, className, classes, raised = fals
 }
 
 
-export default withStyles(styles)(RaisedButton);
 
