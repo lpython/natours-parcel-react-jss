@@ -22,21 +22,17 @@ const useStyles = createUseStyles(theme => ({
     
         [theme.respond("tab-port")]: {
             padding: '20rem 0'
-        }
-        ,
-        // @include respond(tablet-portrait) {
-        //     padding: 20rem 0;
-        // }
-    
-        // @include respond(phone) {
-        //     padding: 25rem 0;
-        // }
+        },
+        
+        [theme.respond("phone")]: {
+            padding: '25rem 0'
+        },
 
         '& div.heading': { 
             textAlign: 'center', 
             marginBottom: '8rem !important'
-        }
-        ,
+        },
+        
         '& p': { 
             fontSize: theme.defaultFontSize,
 
@@ -100,8 +96,8 @@ const useStyles = createUseStyles(theme => ({
                     boxShadow: `0 2.5rem 4rem ${convert(theme.colorBlack, .5)}`,
                     "z-index": 20,
                 }
-            }
-            ,
+            },
+
             '&:hover .photo:not(:hover)': {
                 transform: 'scale(.95)',
             }

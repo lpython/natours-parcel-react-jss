@@ -51,7 +51,6 @@ const useStyles = createUseStyles(theme => ({
         }
         ,
         '& .text-box': {
-            // @include center-hor-ver(40%, 50%),
             position: 'absolute',
             top: '40%',
             left: '50%',

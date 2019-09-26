@@ -7,7 +7,7 @@ import Color from 'color';
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
 const useStyles = createUseStyles(theme => ({
-    btnRaised: {
+    root: {
       '&:link, &:visited': {
         fontSize: theme.defaultFontSize || '16px',
         color: theme.colorPrimary,
@@ -41,7 +41,7 @@ export default function RaisedButton({ text = 'Button', href, className, raised 
   return (
     <a
       href={href ? href : '#'}
-      className={classes.btnRaised}
+      className={classes.root}
       // raised={raised.toString()}
       // white={white.toString()} animated={animated.toString()} 
     >
