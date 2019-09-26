@@ -75,30 +75,7 @@ const useStyles = createUseStyles(theme => ({
       animation: 'moveInBottom .5s ease-out .75s',
       animationFillMode: 'backwards',
     }
-    // ,
-    // '&[raised="true"]': {
-    //   '&:link, &:visited': {
-    //     fontSize: theme.defaultFontSize || '16px',
-    //     color: theme.colorPrimary,
-    //     display: 'inline-block',
-    //     textDecoration: 'none',
-    //     borderBottom: `1px solid ${theme.colorPrimary}`,
-    //     padding: '3px',
-    //     transition: 'all .2s',
-    //   }
-    //   ,
-    //   '&:hover': {
-    //     backgroundColor: '#393',
-    //     color: '#FFF',
-    //     boxShadow: `0 1rem 2rem ${convert(theme.colorBlack, 0.15)}`,
-    //     transform: 'translateY(-2px)',
-    //   }
-    //   ,
-    //   '&:active': {
-    //     boxShadow: `0 .5rem 1rem ${convert(theme.colorBlack, 0.15)}`,
-    //     transform: 'translateY(0)',
-    //   }
-    // }
+  
   }
 }));
 

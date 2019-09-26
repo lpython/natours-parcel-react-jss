@@ -3,7 +3,6 @@ import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import Color from 'color';
 
-
 const sentences = [
     'Blanditiis inventore culpa ut eveniet.',
     'Architecto autem eaque quidem illum ducimus.',
@@ -26,26 +25,26 @@ const useStyles = createUseStyles(theme => ({
     boxShadow: `0 1.5rem 4rem ${convert(theme.colorBlack, .15)}`,
     transition: 'transform .3s',
 
-    // @include respond(tablet-portrait){
-    //     padding: 2rem,
-    // }
+    [theme.respond("tab-port")]: {
+        padding: '2rem',
+    },
 
     '& > i': {
         fontSize: '6rem',
         marginBottom: '.5rem',
         display: 'inline-block',
-
-        color: 'transparent',
         backgroundImage: `linear-gradient(
             to right, 
             ${theme.colorPrimaryLight}, 
             ${theme.colorPrimaryDark})`,
         "-webkit-background-clip": 'text',
+        color: 'transparent',
 
-        // @include respond(tablet-portrait){
-        //    marginBottom: 0,
-        //    fontSize: 5rem,
-        // }
+
+        [theme.respond("tab-port")]: {
+           marginBottom: 0,
+           fontSize: '5rem',
+        }
         
     }
     ,

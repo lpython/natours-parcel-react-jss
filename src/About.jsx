@@ -20,6 +20,10 @@ const useStyles = createUseStyles(theme => ({
         padding: '25rem 0',
         marginTop: '-20vh',
     
+        [theme.respond("tab-port")]: {
+            padding: '20rem 0'
+        }
+        ,
         // @include respond(tablet-portrait) {
         //     padding: 20rem 0;
         // }
@@ -33,13 +37,15 @@ const useStyles = createUseStyles(theme => ({
             marginBottom: '8rem !important'
         }
         ,
-        '& p': { fontSize: '1.6rem' }
-        ,
-        '& p:not(:last-child)': { marginBottom: '3rem' }
-        ,
+        '& p': { 
+            fontSize: theme.defaultFontSize,
+
+            '&:not(:last-child)': { marginBottom: '3rem' }
+        },
+        
         '& .composition': {
             position: 'relative',
-            transition: 'all .2s',
+            // transition: 'all .2s',
         
             '& .photo': {
                 width: '55%',
@@ -111,7 +117,7 @@ export default function About() {
     return (
         <section className={classes.about}>
            <div className="heading">
-               <h2 className="heading-secondary">
+               <h2>
                    Exciting tours for adventurous people
                </h2>
            </div> 
