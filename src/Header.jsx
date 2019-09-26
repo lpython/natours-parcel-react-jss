@@ -8,7 +8,7 @@ import Color from 'color';
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
 const styles = theme => ({
-    header: {
+    root: {
         height: '85vh',
         backgroundImage: `linear-gradient(
             to right bottom, 
@@ -59,8 +59,28 @@ const styles = theme => ({
             textAlign: 'center',
         }
     }
-    ,
-    headingPrimary: {
+});
+
+const Header = ({classes}) => (
+    <header className={classes.root} >
+        <div className="logo-box">
+            <img className="logo" src="./images/logo-white.png" alt="Logo" />
+        </div>
+        <div className="text-box">
+            <CenterHeading/>
+            <AnimatedButton
+                white
+                animated
+                text="Discover our tours"
+            />
+        </div>
+    </header>
+);
+
+export default withStyles(styles)(Header);
+
+const CenterHeading = withStyles({
+    root: {
         color: '#fff',
         textTransform: 'uppercase',
         backfaceVisibility: 'hidden',
@@ -94,25 +114,11 @@ const styles = theme => ({
             // }
         }
     }
-});
-
-const Header = ({classes}) => (
-    <header className={classes.header} >
-        <div className="logo-box">
-            <img className="logo" src="./images/logo-white.png" alt="Logo" />
-        </div>
-        <div className="text-box">
-            <h1 className={classes.headingPrimary} >
-                <span className="main">Outdoors</span>
-                <span className="sub">is where life happens</span>
-            </h1>
-            <AnimatedButton
-                white
-                animated
-                text="Discover our tours"
-            />
-        </div>
-    </header>
-);
-
-export default withStyles(styles)(Header);
+})(function CenterHeading({ classes }) {
+    return (
+        <h1 className={classes.root} >
+            <span className="main">Outdoors</span>
+            <span className="sub">is where life happens</span>
+        </h1>
+    );
+})

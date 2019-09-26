@@ -1,41 +1,38 @@
 {
-  "name": "parcel-natours-react-jss",
+  "name": "natours-react-jss",
   "version": "0.1.0",
-  "description": "wat",
-  "repository": "wat",
-  "scripts": {
-    "start": "npx parcel src/index.html --no-cache --no-autoinstall",
-    "type-check": "tsc --noEmit"
-  },
-  "license": "ISC",
+  "private": true,
   "dependencies": {
-    "color": "^3.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-jss": "^8.6.1",
-    "react-router-dom": "^5.0.0"
+    "@types/jest": "24.0.18",
+    "@types/node": "12.7.7",
+    "@types/react": "16.9.3",
+    "@types/react-dom": "16.9.1",
+    "color": "^3.1.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-jss": "^10.0.0",
+    "react-scripts": "3.1.2",
+    "typescript": "3.6.3"
   },
-  "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.4.2",
-    "@types/react": "^16.8.10",
-    "@types/react-dom": "^16.8.3",
-    "typescript": "^3.4.1"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-    "plugins": [
-      "@babel/plugin-proposal-class-properties",
-      [
-        "@babel/plugin-transform-react-jsx",
-        {
-          "pragmaFrag": "React.Fragment"
-        }
-      ]
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }

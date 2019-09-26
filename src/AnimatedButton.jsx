@@ -7,7 +7,7 @@ import Color from 'color';
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
 const styles = theme => ({
-  btn: {
+  root: {
     '&, &:link, &:visited': {
       textTransform: 'uppercase',
       textDecoration: 'none',
@@ -102,12 +102,12 @@ const styles = theme => ({
   }
 });
 
+//TODO change to string inputs for animated, raised
 function Button({ text = 'Button', href, className, classes, white = false, animated = false, raised = false }) {
-  // const { white = false, animated = false } = this.props; 
   return (
     <a
       href={href ? href : '#'}
-      className={className + ' ' + classes.btn}
+      className={className + ' ' + classes.root}
       white={white.toString()} animated={animated.toString()} raised={raised.toString()}
     >
       {text}

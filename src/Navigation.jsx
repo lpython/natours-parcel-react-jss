@@ -8,7 +8,7 @@ import Color from 'color';
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
 const styles = theme => ({
-    navigation: {
+    root: {
         '& .checkbox' : {
             display: 'none'
         }
@@ -179,7 +179,7 @@ const styles = theme => ({
 
 
 const Navigation = ({classes}) => (
-    <div className={classes.navigation}>
+    <div className={classes.root}>
         <NavIcon/>
         <div className="background">
             &nbsp;
