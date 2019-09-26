@@ -73,9 +73,9 @@ const useStyles = createUseStyles(theme => ({
         '@font-face': {
             fontFamily: "linea-basic-10",
             src: `url("./fonts/linea-basic-10.eot?#iefix") format("embedded-opentype"),
-        url("./fonts/linea-basic-10.woff") format("woff"),
-        url("./fonts/linea-basic-10.ttf") format("truetype"),
-        url("./fonts/linea-basic-10.svg#linea-basic-10") format("svg")`,
+                url("./fonts/linea-basic-10.woff") format("woff"),
+                url("./fonts/linea-basic-10.ttf") format("truetype"),
+                url("./fonts/linea-basic-10.svg#linea-basic-10") format("svg")`,
             fontWeight: 'normal',
             fontStyle: 'normal'
 
@@ -106,6 +106,8 @@ const useStyles = createUseStyles(theme => ({
             '-moz-osx-font-smoothing': 'grayscale'
         }
         ,
+        '.red': { backgroundColor: 'red' }
+        ,
         '.row': {
             maxWidth: theme.gridWidth,
             margin: '0 auto',
@@ -113,16 +115,20 @@ const useStyles = createUseStyles(theme => ({
             "&:not(:last-child)": {
                 marginBottom: theme.gutterVertical,
 
-                // @include respond(tablet-portrait){
-                //     marginBottom: $gutter-vertical-small,
-                // }
+                [theme.respond("tab-port")]: {
+                    marginBottom: theme.gutterVerticalSmall
+                }
             }
             ,
             // @include respond(tablet-portrait){
             //     maxWidth: 50rem,
             //     padding: 0 3rem,
             // }
-
+            [theme.respond("tab-port")]: {
+                maxWidth: '50rem',
+                padding: '0 3rem'
+            }
+            ,
             // @include clearfix,
             '&::after': {
                 content: `''`,
@@ -141,11 +147,19 @@ const useStyles = createUseStyles(theme => ({
                     //     marginRight: 0 !important,
                     //     marginBottom: $gutter-vertical-small,
                     // }
+                    
+                    [theme.respond("tab-port")]: {
+                        marginRight: 0,
+                        marginBottom: theme.gutterVerticalSmall
+                    }
                 }
                 ,
                 // @include respond(tablet-portrait){
                 //     width: 100% !important,
                 // }
+                [theme.respond("tab-port")]: {
+                    width: '100% !important'
+                }
             }
             ,
             '& .col-1-of-2': {

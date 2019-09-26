@@ -35,6 +35,15 @@ const theme = {
 
   defaultFontSize: '1.6rem',
 
+  // Functions
+  respond: breakpoint => {
+    return {
+        phone: "@media only screen and (max-width: 37.5em)",          //600px
+        "tab-port": "@media only screen and (max-width: 56.25em)",    //900px
+        "tab-land": "@media only screen and (max-width: 75em)",       //1200px
+        "big-desktop": "@media only screen and (min-width: 112.5em)"  //1800
+      }[breakpoint];
+  }
   
 };
 
