@@ -33,12 +33,12 @@ const useStyles = createUseStyles(theme => ({
                 ${convert(theme.colorPrimaryLight)}, 
                 ${convert(theme.colorPrimaryDark)} ),
                 url('./images/hero-small.jpg')`
-        }
-        ,
-        // @include respond(phone) {
-        //     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%),
-        //     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%),
-        // }
+        },
+
+        [theme.respond("phone")]: {
+            clipPath: 'polygon(0 0, 100% 0, 100% 85vh, 0 100%)',
+            '-webkit-clip-path': 'polygon(0 0, 100% 0, 100% 85vh, 0 100%)'
+        },
     
         '& .logo-box': {
             position: 'absolute',
@@ -99,9 +99,9 @@ const useCenterHeadingStyles = createUseStyles(theme => ({
             animationDuration: '1s',
             animationTimingFunction: 'ease-out',
     
-            // @include respond(phone) {
-            //     letter-spacing: 1.5rem,
-            // }
+            [theme.respond("phone")]: {
+                letterSpacing: '1.5rem',
+            }
         }
         ,
         '& .sub': {
@@ -112,9 +112,9 @@ const useCenterHeadingStyles = createUseStyles(theme => ({
     
             animation: 'moveInRight 1s ease-out',
     
-            // @include respond(phone) {
-            //     letter-spacing: .5rem,
-            // }
+            [theme.respond("phone")]: {
+                letterSpacing: '0.5rem',
+            }
         }
     }
 }))

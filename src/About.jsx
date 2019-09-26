@@ -45,7 +45,6 @@ const useStyles = createUseStyles(theme => ({
         
         '& .composition': {
             position: 'relative',
-            // transition: 'all .2s',
         
             '& .photo': {
                 width: '55%',
@@ -56,43 +55,43 @@ const useStyles = createUseStyles(theme => ({
                 transition: 'all .2s',
                 outlineOffset: '2rem',
         
-                // @include respond(tablet-portrait){
-                //     position: relative,
-                //     float: left !important,
-                //     width: 33.333333%,
-                //     boxShadow: 0 1rem 2rem rgba($color-black, .4),
-                // }
+                [theme.respond("tab-port")]: {
+                    float: 'left',
+                    position: 'relative',
+                    width: '33.333333%',
+                    boxShadow: `0 1rem 2rem rgba(${theme.colorBlack}, .4)`,
+                },
         
                 '&.p1': {
                     left: 0,
                     top: '-2rem',
         
-                    // @include respond(tablet-portrait){
-                    //     top: 1rem,
-                    //     transform: scale(1.1),
-                    // }
+                    [theme.respond("tab-port")]: {
+                        top: '1rem',
+                        transform: 'scale(1.1)',
+                    }
                 }
                 ,
                 '&.p2': {
                     right: 0,
                     top: '2rem',
         
-                    // @include respond(tablet-portrait){
-                    //     top: -1rem,
-                    //     transform: scale(1.3),
-                    //     z-index: 199,
-                    // }
+                    [theme.respond("tab-port")]: {
+                        top: '-1rem',
+                        transform: 'scale(1.3)',
+                        zIndex: 199,
+                    }
                 }
                 ,
                 '&.p3': {
                     left: '20%',
                     top: '10rem',
         
-                    // @include respond(tablet-portrait){
-                    //     top: 1rem,
-                    //     left: 0,
-                    //     transform: scale(1.1),
-                    // }
+                    [theme.respond("tab-port")]: {
+                        top: '1rem',
+                        left: 0,
+                        transform: 'scale(1.1)',
+                    }
                 }
                 ,
                 '&:hover': {
