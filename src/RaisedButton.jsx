@@ -9,7 +9,7 @@ const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 const useStyles = createUseStyles(theme => ({
     root: {
       '&:link, &:visited': {
-        fontSize: theme.defaultFontSize || '16px',
+        fontSize: theme.defaultFontSize,
         color: theme.colorPrimary,
         display: 'inline-block',
         textDecoration: 'none',
@@ -20,7 +20,7 @@ const useStyles = createUseStyles(theme => ({
       ,
       '&:hover': {
         backgroundColor: '#393',
-        color: '#FFF',
+        color: theme.colorWhite,
         boxShadow: `0 1rem 2rem ${convert(theme.colorBlack, 0.15)}`,
         transform: 'translateY(-2px)',
       }
