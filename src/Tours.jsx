@@ -56,7 +56,7 @@ export default function Tours() {
             </div>
             <div className="u-center-text u-margin-top-big">
                 <AnimatedButton
-                    className="btn btn--green"
+                    green="true"
                     text="Discover all tours"
                 />
             </div>

@@ -80,7 +80,7 @@ const useStyles = createUseStyles(theme => ({
 }));
 
 //TODO change to string inputs for animated, raised
-export default function AnimatedButton({ text = 'Button', href, className, white = false, animated = false, raised = false }) {
+export default function AnimatedButton({ text = 'Button', href, className, white = false, green = false, animated = false, raised = false }) {
   const theme = useTheme();
   const classes = useStyles({ theme })
   
@@ -88,7 +88,7 @@ export default function AnimatedButton({ text = 'Button', href, className, white
     <a
       href={href ? href : '#'}
       className={className + ' ' + classes.root}
-      white={white.toString()} animated={animated.toString()} raised={raised.toString()}
+      white={white.toString()} green={green.toString()} animated={animated.toString()} raised={raised.toString()}
     >
       {text}
     </a>
