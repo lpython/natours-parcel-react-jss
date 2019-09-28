@@ -165,7 +165,6 @@ const useStyles = createUseStyles(theme => ({
         },
 
 
-        //@include respond(tab-port) {
         [`@media only screen and (max-width: 56.25em), 
                  only screen and (hover: none)`]: {
 

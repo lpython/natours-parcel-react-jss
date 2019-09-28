@@ -1,5 +1,4 @@
 import React from 'react';
-import NavLinks from './NavLinks.jsx';
 import NavIcon from './NavIcon.jsx';
 
 import { createUseStyles, useTheme } from 'react-jss';
@@ -210,25 +209,13 @@ export default function Navigation() {
             <nav className="nav">
                 <ul>
                     { links.map((v, i) => (
-                        <li>
+                        <li key={i}>
                             <a href="#">
                                 <span> {i+1} </span> {v}
                             </a>
                         </li>
                     ))}
                 </ul>
-                {/* <NavLinks
-                    listClass="list"
-                    itemClass="item"
-                    linkClass="link"
-                    linksNames={[
-                        "About Natours",
-                        "Your Benefits",
-                        "Popular Tours",
-                        "Stories",
-                        "Book Now"
-                    ]}
-                /> */}
             </nav>
         </div>
     );

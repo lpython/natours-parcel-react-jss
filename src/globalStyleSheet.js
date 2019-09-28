@@ -1,24 +1,11 @@
-import React, { Fragment } from 'react';
-
-import Navigation from './Navigation.jsx';
-import Header from './Header.jsx';
-
-import About from './About.jsx';
-import Features from './Features.jsx';
-import Tours from './Tours.jsx';
-import Stories from './Stories.jsx';
-import Booking from './Booking.jsx';
-import PopUp from './PopUp.jsx';
-
-import Footer from './Footer';
-
-import { createUseStyles, useTheme } from 'react-jss';
+import { createUseStyles } from 'react-jss';
 
 import Color from 'color';
 
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
-const useStyles = createUseStyles(theme => ({
+export default function createUseGlobalStyles() {
+  return createUseStyles(theme => ({
     '@global': {
         // --- Top level ---
         "*, *::after, *::before": {
@@ -135,7 +122,6 @@ const useStyles = createUseStyles(theme => ({
                 padding: '0 3rem'
             },
 
-            // @include clearfix,
             '&::after': {
                 content: `''`,
                 display: 'table',
@@ -247,25 +233,5 @@ const useStyles = createUseStyles(theme => ({
         '.red': { backgroundColor: 'red' }
 
     }
-}));
-
-export default function NatoursApp() {
-    const theme = useTheme();
-    useStyles({ theme });
-
-    return (
-        <Fragment>
-            <Navigation />
-            <Header />
-            <main>
-                <About />
-                <Features />
-                <Tours />
-                <Stories/>
-                <Booking/>
-                <PopUp/>
-            </main>
-            <Footer/>
-        </Fragment>
-    );
+  }));
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'react-jss';
 
-import NatoursApp from './NatoursApp.jsx';
+import Body from './Body.jsx';
 
 const theme = {
   // Colors
@@ -15,7 +15,7 @@ const theme = {
   colorTertiaryLight: '#2998ff',
   colorTertiaryDark: '#5643fa',
 
-  colorGreyLight1: '#f7f7f7',
+  colorGreyLight1: '#f7f7f7', 
   colorGreyLight2: '#eee',
   colorGreyDark: '#777',
   colorGreyDark2: '#999',
@@ -30,9 +30,7 @@ const theme = {
   gutterVerticalSmall: '6rem',
   gutterHorizontal: '6rem',
 
-
   // Font-sizes:
-
   defaultFontSize: '1.6rem',
 
   // Functions
@@ -49,6 +47,6 @@ const theme = {
 
 export default () => (
   <ThemeProvider theme={theme}>
-    <NatoursApp />
+    <Body />
   </ThemeProvider>
 );

@@ -55,7 +55,7 @@ const useStyles = createUseStyles(theme => ({
                     float: 'left',
                     position: 'relative',
                     width: '33.333333%',
-                    boxShadow: `0 1rem 2rem rgba(${theme.colorBlack}, .4)`,
+                    boxShadow: `0 1rem 2rem ${convert(theme.colorSecondaryLight, 0.4)}`,
                 },
         
                 '&.p1': {

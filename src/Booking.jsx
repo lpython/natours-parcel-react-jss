@@ -181,18 +181,18 @@ export default function Booking() {
 
                         <div className="group">
                             <input type="text" placeholder="Full name" id="name" required/>
-                            <label for="name" className="label">Full name</label>
+                            <label htmlFor="name" className="label">Full name</label>
                         </div>
 
                         <div className="group">
                             <input type="email" placeholder="Email address" id="email" required/>
-                            <label for="email" className="label">Email address</label>
+                            <label htmlFor="email" className="label">Email address</label>
                         </div>
 
                         <div className="group u-margin-bottom-medium">
                             <div className="radio-group">
                                 <input type="radio" id="small" name="size"/>
-                                <label for="small">
+                                <label htmlFor="small">
                                     <span/>
                                     Small tour group
                                 </label>
@@ -200,7 +200,7 @@ export default function Booking() {
 
                             <div className="radio-group">
                                 <input type="radio" id="large" name="size"/>
-                                <label for="large">
+                                <label htmlFor="large">
                                     <span/>
                                     Large tour group
                                 </label>

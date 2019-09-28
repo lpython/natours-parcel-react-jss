@@ -88,29 +88,29 @@ export default function Footer() {
     const classes = useStyles({ theme });
 
     return (
-        <footer class={classes.footer}>
-            <div class="logo-box">
-                <picture class="logo">
-                    <source srcset="images/logo-green-small-1x.png 1x, images/logo-green-small-2x.png 2x"
+        <footer className={classes.footer}>
+            <div className="logo-box">
+                <picture className="logo">
+                    <source srcSet="images/logo-green-small-1x.png 1x, images/logo-green-small-2x.png 2x"
                         media="(max-width: 37.5em)" />
-                    <img srcset="images/logo-green-1x.png 1x, images/logo-green-2x.png 2x" alt="Full logo" src="images/logo-green-2x.png" />
+                    <img srcSet="images/logo-green-1x.png 1x, images/logo-green-2x.png 2x" alt="Full logo" src="images/logo-green-2x.png" />
                 </picture>
             </div>
-            <div class="row">
-                <div class="col-1-of-2">
-                    <div class="navigation">
+            <div className="row">
+                <div className="col-1-of-2">
+                    <div className="navigation">
                         <ul>
-                            <li class="item"><a href="#">Company</a></li>
-                            <li class="item"><a href="#">Contact us</a></li>
-                            <li class="item"><a href="#">Carrers</a></li>
-                            <li class="item"><a href="#">Privacy policy</a></li>
-                            <li class="item"><a href="#">Terms</a></li>
+                            <li className="item"><a href="#">Company</a></li>
+                            <li className="item"><a href="#">Contact us</a></li>
+                            <li className="item"><a href="#">Carrers</a></li>
+                            <li className="item"><a href="#">Privacy policy</a></li>
+                            <li className="item"><a href="#">Terms</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-1-of-2">
-                    <p class="copyright">
-                        Built by <a href="#">Jonas Schmedtmann</a> for his online course <a href="#" class="footer__link">Advanced CSS and Sass</a>.
+                <div className="col-1-of-2">
+                    <p className="copyright">
+                        Built by <a href="#">Jonas Schmedtmann</a> for his online course <a href="#">Advanced CSS and Sass</a>.
                         Copyright &copy; by Jonas Schmedtmann. You are 100% allowed to use this webpage for both personal
                         and commercial use, but NOT to claim it as your own design. A credit to the original author, Jonas
                         Schmedtmann, is of course highly appreciated!
