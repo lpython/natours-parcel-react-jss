@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import About from './About.jsx';
 import Features from './Features.jsx';
-// import Footer from './Footer';
 import Header from './Header.jsx';
 import Navigation from './Navigation.jsx';
 // import PopUp from './PopUp';
 import Tours from './Tours.jsx';
 import Stories from './Stories.jsx';
 import Booking from './Booking.jsx';
+import Footer from './Footer';
 
 
 import { createUseStyles, useTheme } from 'react-jss';
@@ -263,7 +263,7 @@ export default function NatoursApp() {
                 <Booking/>
                 {/* <PopUp/> */}
             </main>
-            {/* <Footer/> */}
+            <Footer/>
         </Fragment>
     );
 }

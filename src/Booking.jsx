@@ -1,6 +1,7 @@
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import Color from 'color';
+import AnimatedButton from './AnimatedButton';
 
 const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
@@ -101,7 +102,7 @@ const useStyles = createUseStyles(theme => ({
         transition: 'all .3s'
     },
 
-    "& .input:placeholder-shown + & .label": {
+    "& input:placeholder-shown + label": {
         opacity: 0,
         visibility: 'hidden',
         transform: 'translateY(-4rem)'
@@ -207,7 +208,7 @@ export default function Booking() {
                         </div>
 
                         <div className="group">
-                            <button className="btn btn--green">Next step &rarr;</button>
+                            <AnimatedButton green="true" text="Next step &rarr;"/>
                         </div>
                     </form>
                 </div>

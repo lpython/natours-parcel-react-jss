@@ -9,11 +9,11 @@ const convert = (hex, alpha = 0.8) => Color(hex).alpha(alpha).string();
 
 const useStyles = createUseStyles(theme => ({
     root: {
-        '& .checkbox' : {
+        '& input[type=checkbox]' : {
             display: 'none'
-        }
-        ,
-        '& .button' : {
+        },
+
+        '& label' : {
             backgroundColor: '#FFF',
             height: '7rem',
             width: '7rem',
@@ -26,18 +26,17 @@ const useStyles = createUseStyles(theme => ({
             textAlign: 'center',
             cursor: 'pointer',
     
-            // @include respond(tablet-portrait) {
-            //     top: 3rem,
-            //     right: 3rem,
-            // }
+            [theme.respond('tablet-portrait')]: {
+                top: '3rem',
+                right: '3rem',
+            },
     
-            // @include respond(phone) {
-            //     height: 5rem,
-            //     width: 5rem,
-            // }
-    
-        }
-        ,
+            [theme.respond('phone')]: {
+                height: '5rem',
+                width: '5rem'
+            }    
+        },
+
         '& .background' : {
             height: '6rem',
             width: '6rem',
@@ -46,7 +45,7 @@ const useStyles = createUseStyles(theme => ({
             top: '6.5rem',
             right: '6.5rem',
             backgroundImage: `radial-gradient(${theme.colorPrimaryLight}, ${theme.colorPrimaryDark})`,
-            'z-index': 1000,
+            zIndex: 1000,
             transition: 'transform .8s cubic-bezier(0.86, 0, .07, 1)',
     
             // @include respond(tablet-portrait) {
@@ -58,8 +57,8 @@ const useStyles = createUseStyles(theme => ({
             //     height: 4rem,
             //     width: 4rem,
             // }
-        }
-        ,
+        },
+
         '& .nav' : {
             height: '100vh',
             position: 'fixed',
@@ -69,54 +68,62 @@ const useStyles = createUseStyles(theme => ({
             opacity: 0,
             width: '0%',
             transition: 'all .8s cubic-bezier(.68, -.55, .265, 1.55 )',
-        }
-        ,
-        '& .list' : {
-            // @include center-hor-ver,
-            listStyle: 'none',
-            textAlign: 'center',
-            width: '100%'
-        }
-        ,
-        '& .item' : {
-            margin: '1rem'
-        }
-        ,
-        '& .link' : {
-            '&:link, &:visited': {
-                display: 'inline-block',
-                fontSize: '3rem',
-                fontWeight: 300,
-                padding: '1rem 2rem',
-                color: theme.colorWhite,
-                textDecoration: 'none',
-                textTransform: 'uppercase',
-    
-                backgroundImage: `linear-gradient(
-                    120deg,
-                    transparent 0%,
-                    transparent 50%,
-                    ${theme.colorWhite} 50%
-                )`,
-                backgroundSize: '230%',
-                transition: 'all .4s',
+
+            '& ul' : {
+                // @include center-hor-ver,
+                listStyle: 'none',
+                textAlign: 'center',
+                width: '100%',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%,-50%)',
+
+                '& li' : {
+                    margin: '1rem',
+
+                    '& a' : {
+                        '&:link, &:visited': {
+                            display: 'inline-block',
+                            fontSize: '3rem',
+                            fontWeight: 300,
+                            padding: '1rem 2rem',
+                            color: theme.colorWhite,
+                            textDecoration: 'none',
+                            textTransform: 'uppercase',
+                
+                            backgroundImage: `linear-gradient(
+                                120deg,
+                                transparent 0%,
+                                transparent 50%,
+                                ${theme.colorWhite} 50%
+                            )`,
+                            backgroundSize: '230%',
+                            transition: 'all .4s',
+                        },
+
+                        "& span": {
+                            marginRight: '1.5rem',
+                            display: 'inline-block'
+                        },
+
+                        '&:hover, &:active':  {
+                            backgroundPosition: '100%',
+                            color: theme.colorPrimary,
+                            transform: 'translateX(1rem)', 
+                        }
+                    }
+                }
             }
-            ,
-            '&:hover, &:active':  {
-                backgroundPosition: '100%',
-                color: theme.colorPrimary,
-                transform: 'translateX(1rem)', 
-            }
-        }
-        ,
+        },
 
         // Functionality
     
-        '& .checkbox:checked ~ & .background': {
+        '& input[type=checkbox]:checked ~ .background': {
             transform: 'scale(80)'
         }
         ,
-        '& .checkbox:checked ~ &.nav': {
+        '& input[type=checkbox]:checked ~ .nav': {
             opacity: 1,
             width: '100%'
         }
@@ -139,7 +146,7 @@ const useStyles = createUseStyles(theme => ({
             // }
     
             '&::before, &::after': {
-                content: `''`,
+                content: '""',
                 position: 'absolute',
                 left: 0,
                 transition: 'all .2s',
@@ -154,30 +161,37 @@ const useStyles = createUseStyles(theme => ({
             }
         }
         ,
-        '& .button:hover .icon:before': {
+        '& label:hover .icon:before': {
             top: '-1rem',
         }
         ,
-        '& .button:hover .icon:after': {
+        '& label:hover .icon:after': {
             top: '1rem',
         }
         ,
-        '& .checkbox:checked + .button .icon ': {
+        '& input[type=checkbox]:checked + label .icon ': {
             backgroundColor: 'transparent',
         }
         ,
-        '& .checkbox:checked + .button .icon:before': {
+        '& input[type=checkbox]:checked + label .icon:before': {
             top: 0,
             transform: 'rotate(135deg)',
         }
         ,
-        '& .checkbox:checked + .button .icon:after': {
+        '& input[type=checkbox]:checked + label .icon:after': {
             top: 0,
             transform: 'rotate(-135deg)',
         }
     }
 }));
 
+const links = [
+    "About Natous",
+    "Your benfits",
+    "Popular tours",
+    "Stories",
+    "Book now"
+];
 
 export default function Navigation() {
     const theme = useTheme();
@@ -185,11 +199,23 @@ export default function Navigation() {
 
     return (
         <div className={classes.root}>
-            <NavIcon/>
+            <input type="checkbox" id="navi-toggle"/>
+            <label htmlFor="navi-toggle">
+                <span className="icon">&nbsp;</span>
+            </label>
             <div className="background">
                 &nbsp;
             </div>
             <nav className="nav">
+                <ul>
+                    { links.map((v, i) => (
+                        <li>
+                            <a href="#">
+                                <span> {i+1} </span> {v}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
                 {/* <NavLinks
                     listClass="list"
                     itemClass="item"
