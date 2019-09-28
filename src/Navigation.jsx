@@ -134,28 +134,29 @@ const useStyles = createUseStyles(theme => ({
         '& .icon': {
             position: 'relative',
             marginTop: '3.5rem',
+
+            [theme.respond('phone')]: {
+                marginTop: '2.5rem'
+            },
+
             '&, &::before, &::after': {
                 width: '3rem',
                 height: '2px',
                 backgroundColor: theme.colorGreyDark3,
                 display: 'inline-block',
-            }
-            ,
-            // @include respond(phone) {
-            //     margin-top: 2.5rem,
-            // }
+            },            
     
             '&::before, &::after': {
                 content: '""',
                 position: 'absolute',
                 left: 0,
                 transition: 'all .2s',
-            }
-            ,
+            },
+
             '&::before': {
                 top: '-.8rem',
-            }
-            ,
+            },
+            
             '&::after': {
                top: '.8rem', 
             }
